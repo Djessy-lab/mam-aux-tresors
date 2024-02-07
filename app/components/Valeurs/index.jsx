@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
-import { PiLadderSimpleThin } from "react-icons/pi";
 import { useSpring, animated, config } from 'react-spring';
 
 const Valeurs = () => {
@@ -21,22 +20,6 @@ const Valeurs = () => {
     { title: 'S', img: '/img/SLetter2.png', citation: "Les sourires radieux des enfants illuminent la MAM, créant une atmosphère chaleureuse où chaque journée commence et se termine avec une joie partagée." },
   ];
 
-  const getLetterSize = (index) => {
-    if (lettersRef.current[index]) {
-      const rect = lettersRef.current[index].getBoundingClientRect();
-      return { width: rect.width, height: rect.height };
-    }
-    return { width: 0, height: 0 };
-  };
-
-  const handleMouseEnter = (index) => {
-    setActiveIndex(index);
-  };
-
-  const handleMouseLeave = () => {
-    setActiveIndex(null);
-  };
-
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
@@ -46,11 +29,11 @@ const Valeurs = () => {
         setIsScrollPositionReached(true);
       } else {
         setIsScrollPositionReached(false);
-        handleCloseCitation();
+        handleCloseLetter();
       }
 
       if (scrollPosition > closeThreshold) {
-        handleCloseCitation();
+        handleCloseLetter();
       }
     };
 
@@ -60,12 +43,12 @@ const Valeurs = () => {
     };
   }, []);
 
-  const handleTitleClick = (index) => {
+  const handleLetterClick = (index) => {
     setActiveIndex(index);
     setShowCitation(true);
   };
 
-  const handleCloseCitation = () => {
+  const handleCloseLetter = () => {
     setActiveIndex(null);
     setShowCitation(false);
   };
@@ -81,10 +64,8 @@ const Valeurs = () => {
       if (window.scrollY > stopScrollPosition) {
         return { left: -1000, top: -1000, opacity: 0 };
       }
-
       return { left, top, opacity: 1 };
     }
-
     return { left: 0, top: 0, opacity: 0 };
   };
 
@@ -96,6 +77,23 @@ const Valeurs = () => {
     config: config.wobbly,
   });
 
+  const getLetterClass = (valeur) => {
+    switch (valeur.img) {
+      case '/img/SLetter2.png':
+        return 'translate-y-[-9px]';
+      case '/img/ELetter.png':
+        return 'translate-y-[-2x]';
+      case '/img/RLetter.png':
+        return 'translate-y-[3px]';
+      case '/img/SLetter.png':
+        return 'translate-y-[-8px]';
+      case '/img/OLetter.png':
+        return 'translate-y-[-7px]';
+      default:
+        return '';
+    }
+  };
+
 
   return (
     <div className="relative h-screen">
@@ -104,7 +102,7 @@ const Valeurs = () => {
           <div
             key={index}
             ref={(el) => (lettersRef.current[index] = el)}
-            className="flex flex-col cursor-pointer hover:translate-y-[1px] relative"
+            className="flex flex-col cursor-pointer hover:translate-y-[1px] "
             onMouseEnter={() => {
               if (!showCitation) {
                 setActiveIndex(index);
@@ -116,11 +114,10 @@ const Valeurs = () => {
                 setActiveIndex(null);
               }
             }}
-            onClick={() => handleTitleClick(index)}
+            onClick={() => handleLetterClick(index)}
           >
             <div
-              className={`min-h-48 max-h-48 flex items-center ${valeur.img === '/img/S*.png' ? 'translate-y-[-5px]' : ''
-                }`}
+              className={`min-h-48 max-h-48 flex items-center ${getLetterClass(valeur)} `}
             >
               <Image src={valeur.img} alt={valeur.title} width={150} height={200} className="" />
             </div>
@@ -128,8 +125,8 @@ const Valeurs = () => {
         ))}
       </div>
       {showCitation && activeIndex !== null && (
-        <div className="fixed inset-0 bg-blur-lg backdrop-blur-lg p-8 flex items-center justify-center" onClick={handleCloseCitation} >
-          <p className="text-[#404746] text-4xl font-serif text-center">{valeurs[activeIndex]?.citation}</p>
+        <div className="fixed inset-0 bg-blur-lg backdrop-blur-lg p-8 flex items-center justify-center" onClick={handleCloseLetter} >
+          <p className="text-[#404746] text-4xl font-serif text-center w-3/5">{valeurs[activeIndex]?.citation}</p>
         </div>
       )}
       <animated.div
@@ -139,7 +136,7 @@ const Valeurs = () => {
           ...springProps,
         }}
       >
-        <Image src="/img/pere.png" alt="echelle" width={80} height={80} />
+        <Image src="/img/bebe.png" alt="echelle" width={140} height={140} className={showCitation ? 'blur-lg' : ''} />
       </animated.div>
     </div>
   );

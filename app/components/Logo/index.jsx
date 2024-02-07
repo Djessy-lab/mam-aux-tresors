@@ -9,6 +9,7 @@ function Logo() {
         height={1080}
         alt="logo"
         priority={true}
+        className="mb-10"
         />
     </div>
   )

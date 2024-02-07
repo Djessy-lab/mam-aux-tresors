@@ -1,6 +1,5 @@
-/* eslint-disable no-unused-vars */
 import Image from 'next/image';
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 const baseSrc = '/img/Image'
 const datas = [
   {
@@ -32,6 +31,7 @@ const datas = [
 
 const Photos = () => {
   const containerRef = useRef(null);
+  
   useEffect(() => {
     const container = containerRef.current;
     let scrollIntervalId = null;
@@ -114,29 +114,3 @@ const Photos = () => {
 };
 
 export default Photos;
-
-
-// import { Carousel } from 'react-responsive-carousel';
-// import "react-responsive-carousel/lib/styles/carousel.min.css";
-
-{/* <div className="mx-auto lg:w-[50%] h-[50vh] ">
-        <Carousel
-          autoPlay
-          interval={5000}
-          infiniteLoop
-          showStatus={false}
-          showThumbs={false}
-          stopOnHover
-        >
-          {datas.map((slide) => (
-            <div key={slide.id} className=''>
-              <Image className='object-center object-cover w-[80%] h-[100vh] rounded-xl' src={slide.image} alt={slide.title} width={500} height={500} />
-              <div className="rounded-3xl backdrop-blur-sm border border-[#AABEBD] shadow-xl hover:shadow-none flex flex-col justify-center px-6 mb-10 absolute bottom-10 left-[25%] text-center text-white font-bold font-serif w-[50%] h-[30%] ">
-                <h2 className='text-2xl text-emerald-300 italic p-4'>{slide.title}</h2>
-                <p>{slide.description}</p>
-              </div>
-            </div>
-          )
-          )}
-        </Carousel>
-      </div> */}
