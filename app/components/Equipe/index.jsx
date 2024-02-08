@@ -27,7 +27,7 @@ const Equipe = () => {
   });
 
   const renderCardFlip = () => {
-   return  window.innerWidth >= 768 ? 'horizontal' : 'vertical';
+   return  typeof window !== 'undefined' && window.innerWidth >= 768 ? 'horizontal' : 'vertical';
   }
 
   return (

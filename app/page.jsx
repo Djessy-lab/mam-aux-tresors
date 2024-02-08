@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Scroll from './components/Scroll'
 
 export default function Home() {
