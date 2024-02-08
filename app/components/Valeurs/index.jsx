@@ -1,6 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import { useSpring, animated, config } from 'react-spring';
+import { isMobile } from 'react-device-detect';
+
 
 const Valeurs = () => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -25,7 +27,7 @@ const Valeurs = () => {
       const scrollPosition = window.scrollY;
       const threshold = 2700;
       const closeThreshold = 3000;
-      if (scrollPosition > threshold -300 ) {
+      if (scrollPosition > threshold - 300) {
         setIsScrollPositionReached(true);
       } else {
         setIsScrollPositionReached(false);
@@ -82,7 +84,7 @@ const Valeurs = () => {
       case '/img/SLetter2.png':
         return 'translate-y-[-9px]';
       case '/img/ELetter.png':
-        return 'translate-y-[-2x]';
+        return 'translate-y-[-3x]';
       case '/img/RLetter.png':
         return 'translate-y-[3px]';
       case '/img/SLetter.png':
@@ -97,12 +99,12 @@ const Valeurs = () => {
 
   return (
     <div className="relative h-screen">
-      <div className="flex flex-wrap justify-center mt-48 w-[80%] mx-auto relative">
+      <div className="flex flex-wrap justify-center mt-8 sm:mt-16 md:mt-24 lg:mt-32 w-full md:w-[80%] mx-auto relative">
         {valeurs.map((valeur, index) => (
           <div
             key={index}
             ref={(el) => (lettersRef.current[index] = el)}
-            className="flex flex-col cursor-pointer hover:translate-y-[1px] "
+            className="flex flex-col cursor-pointer hover:translate-y-[1px] mb-8 sm:mb-10 md:mb-12"
             onMouseEnter={() => {
               if (!showCitation) {
                 setActiveIndex(index);
@@ -117,16 +119,24 @@ const Valeurs = () => {
             onClick={() => handleLetterClick(index)}
           >
             <div
-              className={`min-h-48 max-h-48 flex items-center ${getLetterClass(valeur)} `}
-            >
-              <Image src={valeur.img} alt={valeur.title} width={150} height={200} className="" />
+            className={`min-h-[12rem] max-h-[12rem] sm:min-h-[16rem] sm:max-h-[16rem] md:min-h-[20rem] md:max-h-[20rem] flex items-center ${
+              !isMobile ? getLetterClass(valeur) : ''
+            }`}
+          >
+              <Image
+                src={valeur.img}
+                alt={valeur.title}
+                width={isMobile ? 100 : 150}
+                height={isMobile ? 133 : 200}
+                className=""
+              />
             </div>
           </div>
         ))}
       </div>
       {showCitation && activeIndex !== null && (
-        <div className="fixed inset-0 bg-blur-lg backdrop-blur-lg p-8 flex items-center justify-center" onClick={handleCloseLetter} >
-          <p className="text-[#404746] text-4xl font-serif text-center w-3/5">{valeurs[activeIndex]?.citation}</p>
+        <div className="fixed inset-0 bg-blur-lg backdrop-blur-lg p-8 flex items-center justify-center" onClick={handleCloseLetter}>
+          <p className="text-[#404746] text-4xl font-serif text-center w-full sm:w-3/4 lg:w-3/5">{valeurs[activeIndex]?.citation}</p>
         </div>
       )}
       <animated.div
