@@ -126,7 +126,7 @@ const Valeurs = () => {
               <Image
                 src={valeur.img}
                 alt={valeur.title}
-                width={isMobile ? 100 : 150}
+                width={isMobile ? 80 : 150}
                 height={isMobile ? 133 : 200}
                 className=""
               />

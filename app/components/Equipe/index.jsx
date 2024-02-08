@@ -45,7 +45,7 @@ const Equipe = () => {
             flipSpeedBackToFront={1}
             flipSpeedFrontToBack={1}
           >
-            <div className='cursor-pointer mb-4 lg:mb-0' onClick={() => handleCardClick(index)}>
+            <div className={!isFlipped ? 'hidden cursor-pointer mb-4 lg:mb-0' :'cursor-pointer mb-4 lg:mb-0'} onClick={() => handleCardClick(index)}>
               <animated.div
                 className="flex justify-center shadow-lg hover:shadow-md rounded-xl p-4 lg:p-10 w-[80vw] h-48 lg:h-80 lg:w-[25vw]"
                 style={{ ...springProps }}
@@ -66,7 +66,7 @@ const Equipe = () => {
                 </div>
               </animated.div>
             </div>
-            <div onClick={() => handleCardClick(index)}>
+            <div onClick={() => handleCardClick(index)} className={!isFlipped ? 'hidden' :''}>
               <animated.div
                 className="flex justify-center shadow-lg hover:shadow-md rounded-xl p-4 lg:p-10 w-[80vw] h-48 lg:h-80 lg:w-[25vw]"
                 style={{ ...springProps }}
