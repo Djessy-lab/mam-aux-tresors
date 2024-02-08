@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { useSpring, animated } from 'react-spring';
-import CardFlip from 'react-card-flip';
+// import CardFlip from 'react-card-flip';
+import dynamic from 'next/dynamic';
+const CardFlip = dynamic(() => import('react-card-flip'), { ssr: false });
 
 const Equipe = () => {
   const equipe = [
