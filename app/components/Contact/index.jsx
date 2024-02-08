@@ -3,7 +3,7 @@ import { TiPhone } from "react-icons/ti";
 const Contact = () => {
   const contacts = [{ name: 'Cynthia', tel: '0699090985' }, { name: 'Annie', tel: '0675153610' }, { name: 'Coraline', tel: '0621660590' }]
   return (
-    <div className="bg-[#AABEBD] w-[100vw] p-10">
+    <div className="bg-[#9ba8a7] w-[100vw] p-10">
       <h1 className="text-center text-2xl text-white mb-10">Nous contacter</h1>
       <div className="flex justify-center">
         <div className="flex flex-col items-center">
@@ -20,7 +20,7 @@ const Contact = () => {
         </div>
       </div>
       <div className="p-10 flex justify-center">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d399.5580805955479!2d-0.3302667724952931!3d44.71369670153726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd553f5a34ea069d%3A0xb19de733573a3eea!2sLa%20Mam%20aux%20tr%C3%A9sors%20de%20Capian!5e1!3m2!1sfr!2sfr!4v1707251538972!5m2!1sfr!2sfr" width="600" height="450" className="rounded-xl" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d399.5580805955479!2d-0.3302667724952931!3d44.71369670153726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd553f5a34ea069d%3A0xb19de733573a3eea!2sLa%20Mam%20aux%20tr%C3%A9sors%20de%20Capian!5e1!3m2!1sfr!2sfr!4v1707251538972!5m2!1sfr!2sfr" width="600" height="450" className="rounded-xl shadow-xl" allowFullScreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
   )

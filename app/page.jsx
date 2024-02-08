@@ -1,8 +1,10 @@
+import Background from './components/Background'
 import Scroll from './components/Scroll'
 
 export default function Home() {
   return (
-    <div className='bg-slate-100'>
+    <div className=''>
+      <Background />
       <Scroll />
     </div>
   )
