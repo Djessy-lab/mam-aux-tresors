@@ -118,11 +118,7 @@ const Valeurs = () => {
             }}
             onClick={() => handleLetterClick(index)}
           >
-            <div
-            className={`min-h-[12rem] max-h-[12rem] sm:min-h-[16rem] sm:max-h-[16rem] md:min-h-[20rem] md:max-h-[20rem] flex items-center ${
-              !isMobile ? getLetterClass(valeur) : ''
-            }`}
-          >
+            <div className={`flex items-center ${!isMobile ? getLetterClass(valeur) : ''}`}>
               <Image
                 src={valeur.img}
                 alt={valeur.title}

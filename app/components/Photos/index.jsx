@@ -93,7 +93,7 @@ const Photos = () => {
     <div className="relative">
       <div
         ref={containerRef}
-        className="flex overflow-x-auto pb-10 hide-scroll-bar"
+        className="flex overflow-x-auto pb-10"
         onScroll={handleScroll}
       >
         {datas.map((slide) => (

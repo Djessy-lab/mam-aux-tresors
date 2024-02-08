@@ -18,7 +18,7 @@ const Scroll = () => {
     <div>
       <ScrollContainer>
         <ScrollPage>
-          <Animator animation={batch(Sticky(), Fade(0, 3), ZoomOut(.7, 20), MoveOut(0, -50))} >
+          <Animator animation={batch(Sticky(), Fade(0, 1), ZoomOut(.7, 10), MoveOut(0, -50))} >
             <Image src="/img/coffre3.png" alt="logo" width={500} height={500} className="p-12" />
           </Animator>
         </ScrollPage>
@@ -30,13 +30,13 @@ const Scroll = () => {
         </ScrollPage>
 
         <ScrollPage>
-          <Animator animation={batch(FadeIn())} >
+          <Animator animation={batch(ZoomIn(1.2, 1))} >
             <Photos />
           </Animator>
         </ScrollPage>
 
         <ScrollPage>
-          <Animator animation={batch( ZoomIn())} >
+          <Animator animation={ZoomIn(0.5, 1)} >
             <Equipe />
           </Animator>
         </ScrollPage>
