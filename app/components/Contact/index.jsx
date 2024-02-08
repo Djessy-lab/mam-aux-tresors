@@ -3,7 +3,7 @@ import { TiPhone } from "react-icons/ti";
 const Contact = () => {
   const contacts = [{ name: 'Cynthia', tel: '0699090985' }, { name: 'Annie', tel: '0675153610' }, { name: 'Coraline', tel: '0621660590' }]
   return (
-    <div className="bg-[#9ba8a7] w-[100vw] p-10">
+    <div className="bg-[#747e7e] w-[100vw] p-10">
       <h1 className="text-center text-2xl text-white mb-10">Nous contacter</h1>
       <div className="flex justify-center">
         <div className="flex flex-col items-center">

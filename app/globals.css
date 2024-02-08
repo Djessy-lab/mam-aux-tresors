@@ -142,7 +142,7 @@
 	list-style: none;
 	width: 20px;
 	height: 20px;
-	background: rgb(212, 201, 201);
+  background: radial-gradient(circle at bottom, #aeced2, #98bec4 10%, #92bee5 80%, #062745 100%);
 	animation: animate 25s linear infinite;
 	bottom: -150px;
 }
@@ -225,13 +225,13 @@
 @keyframes animate {
 	0% {
 		transform: translateY(0) rotate(0deg);
-		opacity: .5;
+		opacity: .2;
 		border-radius: 100%;
 	}
 
 	100% {
 		transform: translateY(-1000px) rotate(720deg);
-		opacity: .5;
+		opacity: .2;
 		border-radius: 100%;
 	}
 }
