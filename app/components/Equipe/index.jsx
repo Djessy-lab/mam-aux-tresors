@@ -44,8 +44,9 @@ const Equipe = () => {
             flipDirection='horizontal'
             flipSpeedBackToFront={1}
             flipSpeedFrontToBack={1}
+            containerStyle={{ transformStyle: 'preserve-3d' }}
           >
-            <div className={isFlipped[index] ? 'sm:hidden lg:block cursor-pointer mb-4 lg:mb-0' :'cursor-pointer mb-4 lg:mb-0'} onClick={() => handleCardClick(index)}>
+            <div className='cursor-pointer mb-4 lg:mb-0' onClick={() => handleCardClick(index)}>
               <animated.div
                 className="flex justify-center shadow-lg hover:shadow-md rounded-xl p-4 lg:p-10 w-[80vw] h-48 lg:h-80 lg:w-[25vw] bg-[#F4F4F4F4]"
                 style={{ ...springProps }}
