@@ -42,7 +42,11 @@ const Photos = () => {
       const scroll = () => {
         const scrollAmount = 0.5;
         container.scrollLeft += scrollAmount;
-        requestId = requestAnimationFrame(scroll);
+
+        // Ajouter un délai pour ajuster la vitesse de défilement
+        setTimeout(() => {
+          requestId = requestAnimationFrame(scroll);
+        }, 5);
       };
 
       requestId = requestAnimationFrame(scroll);
