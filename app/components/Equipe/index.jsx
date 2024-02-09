@@ -67,7 +67,7 @@ const Equipe = () => {
                 </div>
               </animated.div>
             </div>
-            <div onClick={() => handleCardClick(index)}>
+            <div onClick={() => handleCardClick(index)} style={{ backfaceVisibility: 'hidden' }}>
               <animated.div
                 className="flex justify-center shadow-lg hover:shadow-md rounded-xl p-4 lg:p-10 w-[80vw] h-48 lg:h-80 lg:w-[25vw] bg-[#F4F4F4F4]"
                 style={{ ...springProps }}
