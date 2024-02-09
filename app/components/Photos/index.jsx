@@ -40,13 +40,9 @@ const Photos = () => {
 
     const startAutoScroll = () => {
       const scroll = () => {
-        const scrollAmount = 0.5;
+        const scrollAmount = 1;
         container.scrollLeft += scrollAmount;
-
-        // Ajouter un délai pour ajuster la vitesse de défilement
-        setTimeout(() => {
-          requestId = requestAnimationFrame(scroll);
-        }, 5);
+        requestId = requestAnimationFrame(scroll);
       };
 
       requestId = requestAnimationFrame(scroll);
