@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import Image from 'next/image';
+import { isMobile } from 'react-device-detect';
 
 const baseSrc = '/img/Image';
 
@@ -40,7 +41,7 @@ const Photos = () => {
 
     const startAutoScroll = () => {
       const scroll = () => {
-        const scrollAmount = 1;
+        const scrollAmount = isMobile ? 1 : 0.5;
         container.scrollLeft += scrollAmount;
         requestId = requestAnimationFrame(scroll);
       };
