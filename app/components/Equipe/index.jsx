@@ -44,9 +44,8 @@ const Equipe = () => {
             flipDirection='horizontal'
             flipSpeedBackToFront={1}
             flipSpeedFrontToBack={1}
-            containerStyle={{ transformStyle: 'preserve-3d' }}
           >
-            <div className='cursor-pointer mb-4 lg:mb-0' onClick={() => handleCardClick(index)}>
+            <div className={isFlipped[index] ? 'hidden' : 'cursor-pointer mb-4 lg:mb-0'} onClick={() => handleCardClick(index)}>
               <animated.div
                 className="flex justify-center shadow-lg hover:shadow-md rounded-xl p-4 lg:p-10 w-[80vw] h-48 lg:h-80 lg:w-[25vw] bg-[#F4F4F4F4]"
                 style={{ ...springProps }}
@@ -67,7 +66,7 @@ const Equipe = () => {
                 </div>
               </animated.div>
             </div>
-            <div onClick={() => handleCardClick(index)} style={{ backfaceVisibility: 'hidden' }}>
+            <div onClick={() => handleCardClick(index)} className={!isFlipped[index] ? 'hidden' : ''} >
               <animated.div
                 className="flex justify-center shadow-lg hover:shadow-md rounded-xl p-4 lg:p-10 w-[80vw] h-48 lg:h-80 lg:w-[25vw] bg-[#F4F4F4F4]"
                 style={{ ...springProps }}
